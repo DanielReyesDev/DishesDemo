@@ -6,4 +6,8 @@ public func routes(_ router: Router) throws {
         
         return dish.save(on: request)
     }
+    
+    router.get("api/dishes") { (request) -> Future<[Dish]> in
+        return Dish.query(on: request).all()
+    }
 }
